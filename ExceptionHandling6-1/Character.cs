@@ -144,29 +144,27 @@ namespace ExceptionHandling6_1
         public void ChooseName()
         {
             string yesOrNoInput;
-            Console.WriteLine("Enter your Character Name: ");
-            CharacterName = Console.ReadLine();
-            Console.WriteLine($"Do you accept {CharacterName} as your name\nyes or no");
-            yesOrNoInput = Console.ReadLine();
-            if (yesOrNoInput == "yes" || yesOrNoInput == "Yes")
+            bool nameAccepted = false;
+            do
             {
+                Console.WriteLine("Enter your Character Name: ");
+                CharacterName = Console.ReadLine();
+                Console.WriteLine($"Do you accept {CharacterName} as your name\nyes or no");
+                yesOrNoInput = Console.ReadLine();
+                if (yesOrNoInput == "yes" || yesOrNoInput == "Yes")
+                {
+                    nameAccepted = true;
+                }
+                else if (yesOrNoInput == "no" || yesOrNoInput == "No")
+                {
+                    Console.WriteLine("Choose you name again\n");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid response");
+                }
+            } while (nameAccepted == false);
 
-            }
-            else if (yesOrNoInput == "no" || yesOrNoInput == "No")
-            {
-                ChooseName();
-            }
-            else
-            {
-                Console.WriteLine("Invalid response");
-                ChooseName();
-            }
-
-        }
-
-        public void VerifyName()
-        {
-            //ADD HEREs
         }
 
         public override string ToString() =>
